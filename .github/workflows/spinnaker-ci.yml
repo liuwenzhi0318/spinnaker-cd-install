@@ -63,7 +63,7 @@ jobs:
     
     - name: 02-2-同步镜像到dockerHUB
       run: |
-        docker login -u deployment -p RUV4UTBJdFJUTkdN https://harbor.formovie.net
+        docker login -u ${{ secrets.USER}} -p ${{ secrets.DEPLOYMENT}} https://harbor.formovie.net
         for tag in $(cat ${TAG_FILE})
         do 
            echo  -e "\033[32m  ---> push ---> ${NEW_REGISTRY_URL2}${tag} \033[0m"
